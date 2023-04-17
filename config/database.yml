@@ -5,7 +5,6 @@ default: &default
   password: <%= ENV.fetch('DATABASE_PASSWORD') { '' } %>
   host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
   pool: <%= ENV.fetch('DATABASE_POOL') { 5 } %>
-  port:
 
 development:
   <<: *default
