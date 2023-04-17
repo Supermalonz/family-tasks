@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   root "members#index"
 
   resources :dashboards, only: :index
-  resources :members, only: %i[new create]
+  resources :members, only: %i[new create] do
+    scope module: :members do
+      resources :tasks, only: %i[index update]
+    end
+  end
+  resources :tasks, only: %i[index new create update]
 end

@@ -9,6 +9,7 @@ gem 'pg', '~> 1.4', '>= 1.4.6'
 gem 'puma', '~> 6.2', '>= 6.2.1'
 gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', require: false
+gem 'kaminari'
 
 group :development, :test do
   gem 'dotenv-rails'
