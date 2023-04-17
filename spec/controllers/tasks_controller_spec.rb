@@ -10,7 +10,7 @@ describe TasksController, type: :controller do
 
     let(:tasks) { create_list :task, 10, member: member }
 
-    it 'assigns tasks' do
+    it 'returns tasks' do
       subject
       expect(assigns(:tasks)).to eq tasks
     end
@@ -19,7 +19,7 @@ describe TasksController, type: :controller do
   describe 'GET #new' do
     subject { get :new }
 
-    it 'assigns a task' do
+    it 'returns a task' do
       subject
       expect(assigns(:task)).to be_present
     end

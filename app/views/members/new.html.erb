@@ -1,1 +1,35 @@
-<h1>test</h1>
+<div class="grid grid-cols-1 gap-5">
+  <div>
+    <p class="text-4xl"> Add Family Member</p>
+  </div>
+
+  <div>
+    <%= form_with(model: @member) do |form| %>
+      <% if @member.errors.any? %>
+        <div style="color: red">
+          <ul>
+            <% @member.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+  </div>
+
+  <div>
+    <div>
+      <%= form.label :name%>
+    </div>
+    <div>
+      <%= form.text_field :name %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.submit 'Save', class: "bg-emerald-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"%> <% end %>
+  </div>
+
+  <div class="underline">
+    <%= link_to "Back", dashboards_path %>
+  </div>
+</div>

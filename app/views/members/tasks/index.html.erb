@@ -1,18 +1,17 @@
 <div class="grid grid-cols-1">
   <div>
-    <p class="text-4xl"> All Tasks</p>
+    <p class="text-4xl"> Tasks assigned to <%= @member.name %></p>
     <br>
     <div class="underline">
-      <%= link_to "Add Task", new_task_path %>
+      <%= link_to "Add Task", new_member_task_path %>
     </div>
   </div>
 
-<table>
+<table class="min-w-full">
   <thead>
     <tr>
       <th class="text-sm p-4">Task</th>
       <th class="text-sm p-4">Status</th>
-      <th class="text-sm p-4">Family Member</th>
       <th class="text-sm p-4">Actions</th>
     </tr>
   </thead>
@@ -21,23 +20,23 @@
     <% @tasks.each do |task| %>
     <tr>
       <td class="text-sm p-4"> <%= task.description %> </td>
-      <td class="text-sm p-4 <%= task.complete? ? 'text-emerald-600' : 'text-red-700'%>"> <%= task.status %></td>
-      <td class="text-sm p-4"> <%= task.member.name %></td>
+      <td class="text-sm p-4 <%= task.complete? ? 'text-emerald-600' : 'text-red-600'%>"> <%= task.status %></td>
       <td class="text-sm p-4">
+      <% if !task.complete? %>
         <%=
           button_to 'Mark as complete',
           { action: 'update', id: task.id },
           method: :put,
           params: { task: { status: :complete } }
         %>
+      <% end %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<div class="underline">
-  <%= link_to 'Main', dashboards_path %>
-</div>
-
+  <div class="underline">
+    <%= link_to "Back", dashboards_path %>
+  </div>
 </div>
