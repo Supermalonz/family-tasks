@@ -28,6 +28,4 @@ class Task < ApplicationRecord
   }
 
   validates :description, presence: true, length: { minimum: 1, maximum: 100 }
-
-  delegate :description, to: :member, prefix: true, allow_nil: true
 end
