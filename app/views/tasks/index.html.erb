@@ -24,12 +24,14 @@
       <td class="text-sm p-4 <%= task.complete? ? 'text-emerald-600' : 'text-red-700'%>"> <%= task.status %></td>
       <td class="text-sm p-4"> <%= task.member.name %></td>
       <td class="text-sm p-4">
+      <% if !task.complete? %>
         <%=
           button_to 'Mark as complete',
           { action: 'update', id: task.id },
           method: :put,
           params: { task: { status: :complete } }
         %>
+      <% end %>
       </td>
     </tr>
     <% end %>
