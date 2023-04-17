@@ -245,7 +245,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
-  annotate
+  annotate (~> 3.2)
   bootsnap
   dotenv-rails
   factory_bot_rails

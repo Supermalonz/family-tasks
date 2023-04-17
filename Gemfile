@@ -16,7 +16,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate'
+  gem 'annotate', '~> 3.2'
   gem 'rack-mini-profiler'
   gem 'rubocop', require: false
   gem 'spring'
